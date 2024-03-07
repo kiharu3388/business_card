@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/login.php": {
+      "api/login_process.php": {
         "runtime": "now-php@0.0.7"
       }
     }
