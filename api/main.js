@@ -64,7 +64,7 @@ window.onload = (e)=>{
 			if (code) {
 				drawRect(code.location); // Rect
 				msg.innerText = code.data;
-				fetch('camera.php', {
+				fetch('camera_process.php', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
