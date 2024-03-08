@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION["id"] = $row['id'];
                 $_SESSION["name"] =  $row['name'];
                 //ウェルカムページへリダイレクト
-                header("location:showData.php");
+                header("location:showData_process.php");
                 exit();
             } else {
                 $login_err = 'Invalid username or password.';
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="hidden" name="token" value="<?php echo h($_SESSION['token']); ?>">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a></p>
+            <p>Don't have an account? <a href="register_process.php">Sign up now</a></p>
         </form>
     </div>
 </body>

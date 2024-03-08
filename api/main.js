@@ -73,7 +73,7 @@ window.onload = (e)=>{
 				}).then(response => {
 					if (response.ok) {
 						console.log('QRコードデータをサーバーに送信しました。');
-						window.location.href = "addFriends.php";
+						window.location.href = "addFriends_process.php";
 					} else {
 						console.error('サーバーへのデータ送信中にエラーが発生しました。');
 					}

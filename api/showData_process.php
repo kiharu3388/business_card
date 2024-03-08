@@ -33,13 +33,13 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="navigation">
       <ul>
         <li class="list active">
-          <a href="showData.php">
+          <a href="showData_process.php">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">HOME</span>
           </a>
         </li>
         <li class="list">
-          <a href="MyPage.php">
+          <a href="MyPage_process.php">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
             <span class="title">PROFILE</span>
           </a>

@@ -47,13 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="navigation">
       <ul>
         <li class="list">
-          <a href="showData.php">
+          <a href="showData_process.php">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">HOME</span>
           </a>
         </li>
         <li class="list active">
-          <a href="MyPage.php">
+          <a href="MyPage_process.php">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
             <span class="title">PROFILE</span>
           </a>
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // ボタンのクリックイベントを処理
             button1.addEventListener("click", function() {
                 
-                window.location.href = "MyPage.php";
+                window.location.href = "MyPage_process.php";
             });
         });
     </script>
