@@ -36,13 +36,13 @@ $photo_url = $userInfo['photo_url'];
 <div class="navigation">
       <ul>
         <li class="list">
-          <a href="showData_process.php">
+          <a href="showData.php">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">HOME</span>
           </a>
         </li>
         <li class="list active">
-          <a href="MyPage_process.php">
+          <a href="MyPage.php">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
             <span class="title">PROFILE</span>
           </a>
@@ -100,17 +100,17 @@ $photo_url = $userInfo['photo_url'];
             // ボタンのクリックイベントを処理
             button1.addEventListener("click", function() {
                 
-                window.location.href = "edit_process.php";
+                window.location.href = "edit.php";
             });
 
             button2.addEventListener("click", function() {
                 
-                window.location.href = "QR_process.php";
+                window.location.href = "QR.php";
             });
 
             button3.addEventListener("click", function() {
                 
-                window.location.href = "camera_process.php";
+                window.location.href = "camera.php";
             });
         });
     </script>

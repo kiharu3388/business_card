@@ -6,13 +6,13 @@ if(isset($_GET["logout"]) && $_GET["logout"] == true){
     // セッションを破棄
     session_destroy();
     // ログインページにリダイレクト
-    header("location: login_process.php");
+    header("location: login.php");
     exit;
 }
 
 // セッション変数 $_SESSION["loggedin"]を確認。ログイン済だったらウェルカムページへリダイレクト
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login_process.php");
+    header("location: login.php");
     exit;
 }
 ?>
@@ -35,6 +35,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <p>
         <a href="?logout=true" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
-    <a href="MyPage_process.php" class="btn btn-primary">マイページへ</a>
+    <a href="MyPage.php" class="btn btn-primary">マイページへ</a>
 </body>
 </html>

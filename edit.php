@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$kanji_name, $romaji_name, $affiliation, $position, $company_address, $phone_number, $email_address, $photo_url, $userID]);
 
     // MyPage.phpにリダイレクト
-    header("Location: edit_process.php");
+    header("Location: edit.php");
     exit;
 }
 ?>
@@ -57,13 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="navigation">
       <ul>
         <li class="list">
-          <a href="showData_process.php">
+          <a href="showData.php">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">HOME</span>
           </a>
         </li>
         <li class="list active">
-          <a href="MyPage_process.php">
+          <a href="MyPage.php">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
             <span class="title">PLOFILE</span>
           </a>
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // ボタンのクリックイベントを処理
             button1.addEventListener("click", function() {
                 
-                window.location.href = "MyPage_process.php";
+                window.location.href = "MyPage.php";
             });
         });
     </script>

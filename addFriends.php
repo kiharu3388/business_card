@@ -18,18 +18,28 @@ if (isset($_SESSION['qrCodeData'])) {
     // kanji_name を取得できた場合は表示する
     if ($userInfo && isset($userInfo['kanji_name'])) {
         $kanjiName = $userInfo['kanji_name'];
-        echo '<div class="content">';
-        echo '<p>' . htmlspecialchars($kanjiName) . 'さんを追加しました</p>';
-        echo '<button class="button1" id="redirectButton1" type="button">back</button>';
-        echo '</div>';
+        
+        // friendsテーブルに挿入するSQLクエリを実行
+        $insertStmt = $pdo->prepare("INSERT INTO friends (user_id, other_user_id) VALUES (?, ?)");
+        $insertStmt->execute([$userID, $qrCodeData]);
+
+        $message = htmlspecialchars($kanjiName) . 'さんを追加しました';
+
+        // echo '<div class="content">';
+        // echo '<p>' . htmlspecialchars($kanjiName) . 'さんを追加しました</p>';
+        // echo '<button class="button1" id="redirectButton1" type="button">back</button>';
+        // echo '</div>';
     } else {
-        echo "エラー: 指定されたユーザーが見つかりませんでした。";
+        // echo "エラー: 指定されたユーザーが見つかりませんでした。";
+        $message = "エラー: 指定されたユーザーが見つかりませんでした。";
     }
 } else {
     // QRコードのデータがセッションに存在しない場合のエラーハンドリング
-    echo "エラー: QRコードのデータがセッションに存在しません。";
+    // echo "エラー: QRコードのデータがセッションに存在しません。";
+    $message = "エラー: QRコードのデータがセッションに存在しません。";
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -37,20 +47,20 @@ if (isset($_SESSION['qrCodeData'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./QR.css">
+    <link rel="stylesheet" href="./addFriends.css">
     <title>addFriends</title>
 </head>
 <body>
     <div class="navigation">
         <ul>
             <li class="list">
-                <a href="showData_process.php">
+                <a href="showData.php">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                     <span class="title">HOME</span>
                 </a>
             </li>
             <li class="list active">
-                <a href="MyPage_process.php">
+                <a href="MyPage.php">
                     <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                     <span class="title">PROFILE</span>
                 </a>
@@ -66,6 +76,14 @@ if (isset($_SESSION['qrCodeData'])) {
         </ul>
     </div>
 
+    <div class="content">
+        <p class="message"><?php echo $message;?><p>
+
+
+
+        <button class="button1" id="redirectButton1" type="button">Back</button>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // ボタン要素を取得
@@ -74,7 +92,7 @@ if (isset($_SESSION['qrCodeData'])) {
             // ボタンのクリックイベントを処理
             button1.addEventListener("click", function() {
                 
-                window.location.href = "camera_process.php";
+                window.location.href = "MyPage.php";
             });
         });
     </script>
